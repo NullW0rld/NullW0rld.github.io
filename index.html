@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JJ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        ul {
+            margin-top: 10px;
+            list-style: none;
+        }
+
+        li {
+            font-size: 18px;
+            color: #fff;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background-color: #3c3c3c;
+        }
+
+        .logo {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 200px;
+        }
+
+        .logo img {
+            width: inherit;
+            height: inherit;
+            border-radius: 200px;
+            z-index: 1;
+            animation: rota 2s linear infinite;
+        }
+
+        .logo::after {
+            position: absolute;
+            content: "";
+            inset: -5px;
+            background-color: #21D4FD;
+            background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+            border-radius: 200px;
+            z-index: -1;
+            animation: bg 1s linear infinite;
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+            margin-top: 10px;
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+
+        textarea {
+            margin-top: 20px;
+            width: 200px;
+            height: 100px;
+            padding: 5px;
+        }
+
+        @keyframes rota {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes bg {
+            to {
+                filter: hue-rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logo">
+        <img src="img/Image_1720337785805.jpg" alt="">
+    </div>
+    <audio id="audio" preload="auto">
+        <source src="music/music.mp3" type="audio/mpeg">
+    </audio>
+    <textarea name="" id="texts"></textarea>
+    <button id="say">留言</button>
+    <button id="btnPlay">开始阴间</button>
+    <button id="btnPause">停止阴间</button>
+    <ul id="ul">
+    </ul>
+
+
+    <script>
+        var btnPlay = document.getElementById('btnPlay')
+        var audio = document.getElementById('audio')
+        var btnSay = document.getElementById('say')
+        var texts = document.getElementById('texts')
+        var btnPause = document.getElementById('btnPause')
+        var ul = document.getElementById('ul')
+        btnPlay.onclick = function () {
+            audio.play()
+        }
+        btnPause.onclick = function () {
+            audio.pause()
+        }
+        btnSay.onclick = function () {
+            if (texts.value == '') {
+                return null
+            } else {
+                var li = document.createElement('li')
+                li.innerText = texts.value
+                ul.appendChild(li)
+            }
+        }
+        // btnSay.onclick = function () {
+        //     if (texts.value == '') {
+        //         return alert('NULL')
+        //     } else {
+        //         var li = document.createElement('li')
+        //         li.innerText = texts.value
+        //         ul.appendChild(li)
+        //     }
+        // }
+    </script>
+</body>
+
+</html>
