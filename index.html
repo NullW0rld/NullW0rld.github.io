@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JJ</title>
+    <title>Document</title>
     <style>
         * {
             margin: 0;
@@ -13,76 +13,57 @@
             user-select: none;
         }
 
-        ul {
-            margin-top: 10px;
-            list-style: none;
-        }
-
-        li {
-            font-size: 18px;
-            color: #fff;
-        }
-
         body {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-            background-color: #3c3c3c;
+            background-color: #000;
         }
 
         .logo {
+            margin: 10px auto;
+            width: 100%;
+            height: 160px;
+            background-color: #000;
+        }
+
+        .HH {
+            width: 100%;
+            height: 160px;
+        }
+
+        .yinjian {
             position: relative;
-            width: 200px;
-            height: 200px;
-            border-radius: 200px;
+            margin: 30px auto;
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            animation: yinjian 2s linear infinite;
         }
 
-        .logo img {
-            width: inherit;
-            height: inherit;
-            border-radius: 200px;
-            z-index: 1;
-            animation: rota 2s linear infinite;
-        }
 
-        .logo::after {
+        .yinjian::after {
             position: absolute;
             content: "";
-            inset: -5px;
-            background-color: #21D4FD;
-            background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
-            border-radius: 200px;
-            z-index: -1;
-            animation: bg 1s linear infinite;
+            inset: -3px;
+            background-color: purple;
+            border-radius: 100px;
+            z-index: -99;
+            filter: blur(20px);
         }
 
-        button {
-            width: 100px;
-            height: 30px;
-            margin-top: 10px;
-            background-color: transparent;
+        .ZZ {
+            width: inherit;
+            height: inherit;
+            border-radius: 100px;
+        }
+
+        .text {
+            width: 300px;
+            margin: 30px auto;
             color: #fff;
-            border: 1px solid #fff;
         }
 
-        textarea {
-            margin-top: 20px;
-            width: 200px;
-            height: 100px;
-            padding: 5px;
-        }
-
-        @keyframes rota {
+        @keyframes yinjian {
             to {
                 transform: rotate(360deg);
-            }
-        }
-
-        @keyframes bg {
-            to {
-                filter: hue-rotate(360deg);
             }
         }
     </style>
@@ -90,51 +71,14 @@
 
 <body>
     <div class="logo">
-        <img src="img/Image_1720337785805.jpg" alt="">
+        <img src="img/HH.png" class="HH">
     </div>
-    <audio id="audio" preload="auto">
-        <source src="music/music.mp3" type="audio/mpeg">
-    </audio>
-    <textarea name="" id="texts"></textarea>
-    <button id="say">留言</button>
-    <button id="btnPlay">开始阴间</button>
-    <button id="btnPause">停止阴间</button>
-    <ul id="ul">
-    </ul>
-
-
-    <script>
-        var btnPlay = document.getElementById('btnPlay')
-        var audio = document.getElementById('audio')
-        var btnSay = document.getElementById('say')
-        var texts = document.getElementById('texts')
-        var btnPause = document.getElementById('btnPause')
-        var ul = document.getElementById('ul')
-        btnPlay.onclick = function () {
-            audio.play()
-        }
-        btnPause.onclick = function () {
-            audio.pause()
-        }
-        btnSay.onclick = function () {
-            if (texts.value == '') {
-                return null
-            } else {
-                var li = document.createElement('li')
-                li.innerText = texts.value
-                ul.appendChild(li)
-            }
-        }
-        // btnSay.onclick = function () {
-        //     if (texts.value == '') {
-        //         return alert('NULL')
-        //     } else {
-        //         var li = document.createElement('li')
-        //         li.innerText = texts.value
-        //         ul.appendChild(li)
-        //     }
-        // }
-    </script>
+    <div class="yinjian">
+        <img src="img/yinjian.png" class="ZZ">
+    </div>
+    <div class="text">
+        我叫黄昏，是一名鸡翅玩家，每天最喜欢的就是拿着我手里的鸡翅佐助殴打角斗场，开局二技能无敌冲刺对过大部分技能，每次起手到对面都感觉自己操作拉满了，实际上就是没有多少人玩鸡翅打信息查，对面替身我不是通灵就是霸体或者蛇，追着对面咬，看到对面摸头我只能笑笑，对面还歹在练，因为鸡翅是T3的，打不过就是菜，对面再战因为害怕ban我鸡翅我选择直接挂他1分钟，我真是太酷了！
+    </div>
 </body>
 
 </html>
