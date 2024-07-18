@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>3498圣经</title>
     <style>
         * {
             margin: 0;
@@ -13,55 +13,92 @@
             user-select: none;
         }
 
-        body {
-            background-color: #000;
-        }
-
-        .logo {
-            margin: 10px auto;
-            width: 100%;
-            height: 160px;
-            background-color: #000;
-        }
-
-        .HH {
-            width: 100%;
-            height: 160px;
-        }
-
-        .yinjian {
-            position: relative;
-            margin: 30px auto;
-            width: 100px;
-            height: 100px;
-            border-radius: 100px;
-            animation: yinjian 2s linear infinite;
-        }
-
-
-        .yinjian::after {
-            position: absolute;
-            content: "";
-            inset: -3px;
-            background-color: purple;
-            border-radius: 100px;
-            z-index: -99;
-            filter: blur(20px);
-        }
-
-        .ZZ {
-            width: inherit;
-            height: inherit;
-            border-radius: 100px;
-        }
-
-        .text {
-            width: 300px;
-            margin: 30px auto;
+        p {
+            text-align: center;
             color: #fff;
         }
 
-        @keyframes yinjian {
+        body {
+            background: url("img/bg.jpg")no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: top center;
+            height: 100vh;
+            background-color: #000;
+            backdrop-filter: blur(5px);
+        }
+
+        /* 标题 */
+        h4 {
+            padding-top: 20px;
+            font-size: 30px;
+            color: #fff;
+            text-align: center;
+            /* text-shadow: 0 0 5px #fff; */
+            letter-spacing: 5px;
+            animation: logo 3s linear infinite alternate;
+        }
+
+        .container1 {
+            position: relative;
+            margin: 50px auto;
+            padding: 10px;
+            width: calc(100% / 1.2);
+            background-color: rgba(0, 0, 0, .7);
+            border-radius: 10px;
+            z-index: -99;
+        }
+
+        .container1 .logo {
+            position: relative;
+            margin: 10px auto 15px;
+            width: 120px;
+            height: 120px;
+
+        }
+
+        .container1 .logo::after {
+            position: absolute;
+            content: "";
+            inset: -3px;
+            border-radius: 120px;
+            background-color: #00DBDE;
+            background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+            z-index: -1;
+            animation: imgs 2s linear infinite alternate;
+        }
+
+        .container1 .logo img {
+            width: inherit;
+            height: inherit;
+            border-radius: 120px;
+        }
+
+        button {
+            display: block;
+            margin: 50px auto;
+            width: 200px;
+            height: 30px;
+            border: 1px solid #fff;
+            background-color: transparent;
+            color: #e84393;
+            font-weight: 700;
+        }
+
+        @keyframes imgs {
+            to {
+                filter: hue-rotate(360deg);
+                filter: blur(10px);
+            }
+        }
+
+        @keyframes logo {
+            to {
+                text-shadow: 0 0 10px #fff;
+            }
+        }
+
+        @keyframes rota {
             to {
                 transform: rotate(360deg);
             }
@@ -70,15 +107,34 @@
 </head>
 
 <body>
-    <div class="logo">
-        <img src="img/HH.png" class="HH">
+    <h4>|君の圣经|</h4>
+    <button>开始音乐</button>
+    <audio src="music/BGM.mp3"></audio>
+    <div class="container1">
+        <div class="logo">
+            <img src="img/黄昏.jpg" alt="">
+        </div>
+        <p>我叫黄昏，是一名秽土鼬玩家，每天早上起床第一件事必定是启动火影，打决斗场拿着我的秽土鼬去当小丑，开局一定是小丑冲撞，跟个小丑一样飘过去，谁知道对面根本不博弈，直接放技能，我就被对面
+            起手到了，‘对面是人机吗一点也不博弈’，于是我替身直接月度抓他，谁知到直接被顶掉，我笑了，默不作声，就这样，我跟个小丑一样被干死了，策划，加强秽土鼬！就这样，直到某一天我接触到了鸡翅佐助
+            靠着信息查，我居然上了超影10000分.....！
+        </p>
     </div>
-    <div class="yinjian">
-        <img src="img/yinjian.png" class="ZZ">
-    </div>
-    <div class="text">
-        我叫黄昏，是一名鸡翅玩家，每天最喜欢的就是拿着我手里的鸡翅佐助殴打角斗场，开局二技能无敌冲刺对过大部分技能，每次起手到对面都感觉自己操作拉满了，实际上就是没有多少人玩鸡翅打信息查，对面替身我不是通灵就是霸体或者蛇，追着对面咬，看到对面摸头我只能笑笑，对面还歹在练，因为鸡翅是T3的，打不过就是菜，对面再战因为害怕ban我鸡翅我选择直接挂他1分钟，我真是太酷了！
-    </div>
+    <script>
+        var btn = document.querySelector('button')
+        var audio = document.querySelector('audio')
+        var flag = 0
+        btn.addEventListener('click', function () {
+            if (flag == 0) {
+                audio.play()
+                flag = 1
+                btn.innerHTML = '暂停音乐'
+            } else {
+                audio.pause()
+                flag = 0
+                btn.innerHTML = '开始音乐'
+            }
+        })
+    </script>
 </body>
 
 </html>
